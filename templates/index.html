@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Recepi Finder</title>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="static/img/logo.svg" alt="" />
+      </div>
+    </nav>
+    <hr />
+    <h2>Welcom To <span>Recipes</span> Finder</h2>
+    <p>
+      The primary purpose of a recipe finder application is to help users
+      discover, plan, and execute meals effortlessly. These tools provide
+      personalized meal suggestions, filter out complex dietary restrictions,
+      and teach users how to cook with the ingredients they already have on hand
+    </p>
+    <form action="/" method="GET">
+      <input
+        type="text"
+        name="meals_name"
+        placeholder="Enter Recipes Name..."
+      />
+      <button type="submit" onclick="goToResult()" >Search</button>
+    </form>
+    <script>
+      if(window.location.search){
+        document.getElementById("recipe-result").scrollIntoView({
+          behavior:"smooth"
+        });
+      }
+    </script>
+
+      <div id="recipe-result">
+    {% if meal_name %}
+    <div class="recipe-card">
+      <img src="{{strMealThumb}}" alt="Image"  />
+      <div class="vertical-line"></div>
+      <div class="text">
+        <p><span>Name:</span>{{meal_name}}</p>
+        <p><span>Category:</span>{{strCategory}}</p>
+        <p><span>Area:</span>{{strArea}}</p>
+        <p><span>Country:</span>{{strCountry}}</p>
+        <!-- <p><span>Image</span>{{strMealThumb}}</p> -->
+
+        <button class="video">
+          <a href="{{strYoutube}}" target="_blank">Watch On YouTube</a>
+        </button>
+      </div>
+      <div class="vertical-line"></div>
+      <!-- <p><span>Youtube Link</span>{{strYoutube}}</p> -->
+      <div class="details">
+        <p><span>Instructions:</span>{{strInstructions}}</p>
+      </div>
+    </div>
+
+    {% endif %} 
+  </div>  
+    <h3 class="head">Popular Recipes</h3>
+    <div class="container">
+      <div class="v">
+        <img
+          src="static\img\sjfgbc1779647169.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Macaroni Pie</p>
+      </div>
+      <div class="i">
+        <img
+          src="static\img\5vhbzt1782239221.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Bajan Sweet Bread</p>
+      </div>
+
+      <div class="j">
+        <img
+          src="static\img\5tf8j11782236249.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Chicken and Potato Roti</p>
+      </div>
+
+      <div class="a">
+        <img
+          src="static\img\6utn1w1782237402.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Mediterranean Pasta Salad</p>
+      </div>
+      <div class="y">
+        <img src="static\img\Macaroni Pie.jpg" height="200px" width="231" />
+        <p>Full English Breakfast</p>
+      </div>
+      <div class="k">
+        <img
+          src="static\img\mp9z0i1782238092.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Christmas Pudding Trifle</p>
+      </div>
+      <div class="u">
+        <img
+          src="static\img\z672jx1780263633.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Presh me Oriz Leek and Rice Bake</p>
+      </div>
+      <div class="m">
+        <img
+          src="static\img\sqrtwu1511721265.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Breadfruit in Butter Sauce Recipe</p>
+      </div>
+      <div class="p">
+        <img
+          src="static\img\sr7chd1780264758.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Chicken Liver Pate Recipe</p>
+      </div>
+      <div class="o">
+        <img
+          src="static\img\vpcqn01763335688.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Bajan Salt Bread Recipe</p>
+      </div>
+      <div class="r">
+        <img
+          src="static\img\xrysxr1483568462.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Barbados Pepperpot</p>
+      </div>
+      <div class="l">
+        <img
+          src="static\img\md8w601593348504.jpg"
+          height="200px"
+          width="231"
+          alt=""
+        />
+        <p>Breadfruit in Butter Sauce</p>
+      </div>
+    </div>
+  
+    {% if message %}
+    <p>{{message}}</p>
+    {% endif %}
+    <div>
+      <p class="footer">© 2026 bluewhale-coder. All Rights Reserved.</p>
+    </div>
+  </body>
+</html>
